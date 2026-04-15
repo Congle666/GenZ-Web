@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ivory text-ink antialiased;
+  }
+  ::selection {
+    @apply bg-gold/30 text-ink;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+
+  .bg-grain {
+    background-image: radial-gradient(
+      rgba(43, 36, 32, 0.04) 1px,
+      transparent 1px
+    );
+    background-size: 4px 4px;
+  }
+
+  /* Editorial hairline gold divider */
+  .hairline {
+    position: relative;
+  }
+  .hairline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.5rem;
+    width: 3rem;
+    height: 1px;
+    background: #C9A96E;
+  }
+
+  /* Sideways numeric label */
+  .num-label {
+    writing-mode: vertical-rl;
+    letter-spacing: 0.4em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Vertical divider */
+  .vdivider::before {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 3rem;
+    background: currentColor;
+    opacity: 0.2;
+    margin: 0 auto 1.5rem;
+  }
+}
